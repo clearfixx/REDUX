@@ -53,7 +53,7 @@ const btnArray = [
 ];
 
 const createButtons = (arr) => {
-  btnArray.map(({ className, id, text }) => {
+  arr.map(({ className, id, text }) => {
     let btn = document.createElement("button");
     btn.className = className;
     btn.id = id;
