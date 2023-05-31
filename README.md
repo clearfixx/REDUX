@@ -11,7 +11,7 @@ I've been created this simple app for undrstandidng main redux conceptions. Perh
 
 Just clone this repo and do this command in your terminal:
 
-    npm instal
+    npm install
 and 
 
     npm run dev
