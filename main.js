@@ -1,9 +1,11 @@
 import { createStore } from "redux";
 
-const counter = (state = 0, action) => {
+const initialState = 0;
+
+const counter = (state = initialState, action) => {
   if (action.type === "INCREMENT") state += 1;
   if (action.type === "DECREMENT") state -= 1;
-  if (action.type === "RESET") state = 0;
+  if (action.type === "RESET") state = initialState;
   return state;
 };
 
@@ -32,22 +34,38 @@ const btnWrapper = document.createElement("div");
 btnWrapper.className = "btn-wrapper";
 document.querySelector("#app").append(btnWrapper);
 
-const decrementBtn = document.createElement("button");
-decrementBtn.className = "decrement-btn btn";
-decrementBtn.innerText = "Decrement counter";
-document.querySelector(".btn-wrapper").append(decrementBtn);
+const btnArray = [
+  {
+    className: "decrement-btn btn",
+    id: "decrementBtn",
+    text: "Decrement counter",
+  },
+  {
+    className: "increment-btn btn",
+    id: "incrementBtn",
+    text: "Increment counter",
+  },
+  {
+    className: "reset-btn btn",
+    id: "resetBtn",
+    text: "Reset counter",
+  },
+];
+
+const createButtons = (arr) => {
+  btnArray.map(({ className, id, text }) => {
+    let btn = document.createElement("button");
+    btn.className = className;
+    btn.id = id;
+    btn.innerText = text;
+    document.querySelector(".btn-wrapper").append(btn);
+  });
+};
+
+createButtons(btnArray);
+
 decrementBtn.onclick = () => store.dispatch(decrement);
-
-const incrementBtn = document.createElement("button");
-incrementBtn.className = "increment-btn btn";
-incrementBtn.innerText = "Increment counter";
-document.querySelector(".btn-wrapper").append(incrementBtn);
 incrementBtn.onclick = () => store.dispatch(increment);
-
-const resetBtn = document.createElement("button");
-resetBtn.className = "reset-btn btn";
-resetBtn.innerText = "Reset counter";
-document.querySelector(".btn-wrapper").append(resetBtn);
 resetBtn.onclick = () => store.dispatch(reset);
 
 const render = () => {
