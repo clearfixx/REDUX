@@ -3,9 +3,9 @@
 This is simple app created by Vite (Vanilla JS) to learn how to work **REDUX**. 
 
 
-# Files
+# About
 
-I've been created this simple app for undrstandidng main redux conceptions. Perhaps this appwill behelpful to someone in the initial stages of learning Redux
+I've been created this simple app for undrstandidng main redux conceptions. Perhaps this app will be helpful to someone in the initial stages of learning Redux
 
 # Running up
 
